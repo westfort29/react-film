@@ -1,7 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`SaySomeThing print right data 1`] = `
-<h1>
-  something other
-</h1>
-`;
