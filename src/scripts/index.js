@@ -1,1 +1,1 @@
-export * from './SaySomeThing';
+export * from './components';

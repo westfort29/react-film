@@ -6,7 +6,6 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 module.exports = function(env, options) {
   const isProduction = options.mode === "production";
 
-
   const config = {
     context: path.join(__dirname, "src"),
     entry: {
@@ -41,10 +40,25 @@ module.exports = function(env, options) {
           use: ExtractTextPlugin.extract({
             fallback: "style-loader",
             use: [
-              {loader: "css-loader", options:{ minimize: isProduction}},
-              {loader: "sass-loader"}
+              {
+                loader: "css-loader",
+                options:{
+                  minimize: isProduction
+                }
+              },
+              {
+                loader: "sass-loader",
+                options: {
+                  sourceMap: !isProduction,
+                  data: '@import "./src/styles/variables.scss";'
+                }
+              }
             ]
           })
+        },
+        {
+          test: /\.(png|jpg)$/,
+          loader: 'file-loader'
         }
       ]
     },

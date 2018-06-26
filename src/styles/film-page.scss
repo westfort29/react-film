@@ -1,0 +1,98 @@
+.film-page {
+
+  &__info-wrapper {
+    min-height: 250px;
+    width: 100%;
+    background: url('../assets/search-background.png');
+    background-size: cover;
+  }
+
+  &__content {
+    min-height: 250px;
+    background: rgba(0, 0, 0, 0.65);
+    height: 100%;
+    width: 100%;
+    color: white;
+    padding: 10px 10% 20px 10%;
+  }
+
+  &__heading {
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__search-link {
+    background: #ccc;
+    color: $primary-contrast-color;
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-weight: bold;
+    cursor: pointer;
+
+    &:hover {
+      background: #aaa;
+    }
+  }
+
+  &__film-info {
+    padding: 20px 0 0 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__poster-wrapper {
+    flex-basis: 250px;
+    height: 350px;
+  }
+
+  &__poster {
+    height: 100%;
+    width: 100%;
+  }
+
+  &__text-info {
+    max-width: 600px;
+    margin-left: 30px;
+    padding-top: 20px; 
+  }
+
+  &__film-title {
+    color: $primary-contrast-color;
+    font-size: 24px;
+    padding-bottom: 10px;
+    letter-spacing: 0.8px;
+  }
+
+  /* &__film-rewards {
+
+  } */
+
+  &__film-time {
+    padding-top: 10px;
+    font-weight: bold;
+  }
+
+  &__film-year {
+    margin-right: 30px;
+  }
+
+  /* &__film-duration {
+
+  } */
+
+  &__film-description {
+    padding-top: 20px;
+
+  }
+
+  &__same-genre-heading {
+    width: 100%;
+    padding: 10px 10% 10px 10%;
+    background: #ccc;
+  }
+
+  &__genre-title {
+    font-style: italic;
+  }
+}

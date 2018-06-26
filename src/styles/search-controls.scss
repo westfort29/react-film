@@ -1,0 +1,68 @@
+.search-controls {
+  min-height: 250px;
+  width: 100%;
+  background: url('../assets/search-background.png');
+  background-size: cover;
+  position: relative;
+
+  &__content {
+    min-height: 250px;
+    padding: 50px 100px;
+    background: rgba(0, 0, 0, 0.65);
+    height: 100%;
+    width: 100%;
+    color: white;
+  }
+
+  &__heading {
+    font-size: 24px;
+  }
+
+  &__search-input {
+    width: 100%;
+    height: 30px;
+    margin: 10px 0 20px 0;
+    padding: 3px 10px;
+    font-size: 16px;
+    border-bottom: 1px solid grey;
+    background: black;
+    color: #ccc;
+
+    &:focus {
+      border: 0;
+      border-bottom: 1px solid #ccc;
+    }
+  }
+
+  &__controls {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  &__search-by-item {
+    display: inline-block;
+    margin: 0 10px;
+  }
+
+  &__button {
+    padding: 4px 7px;
+    border-radius: 2px;
+    background: $primary-contrast-color;
+    color: #fff;
+    cursor: pointer;
+
+    &:active {
+      background: darken($primary-contrast-color, 5%);
+    }
+
+    &--inactive {
+      background: #403F3D;
+    }
+
+    &--large {
+      padding: 8px 12px;
+      font-size: 20px;
+    }
+  }
+}

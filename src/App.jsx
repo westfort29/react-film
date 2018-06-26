@@ -1,11 +1,15 @@
 import * as React from "react";
-import { SaySomeThing } from "./scripts";
+import { AppFooter, FilmsSearchWrapper, FilmPage, ErrorBoundary } from "./scripts";
 
 export class App extends React.PureComponent {
   render() {
     return (
       <main>
-        <SaySomeThing say="Hi" />
+        <ErrorBoundary>
+          <FilmsSearchWrapper />
+          <FilmPage />
+          <AppFooter />
+        </ErrorBoundary>
       </main>
     );
   }

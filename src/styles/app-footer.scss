@@ -1,0 +1,21 @@
+.app-footer {
+  background: #434343;
+  text-align: center;
+  color: coral;
+
+  &__info-list {
+    width: 80%;
+    margin: auto;
+    min-height: 150px;
+    padding: 20px;
+  }
+
+  &__info-item {
+    display: inline-block;
+    margin-right: 30px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}

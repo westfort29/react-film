@@ -1,0 +1,49 @@
+.films-search-result {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 50px 10%;
+  min-height: 500px;
+
+  &__film {
+    width: 250px;
+    margin: 10px 0 0 10px;
+    line-height: 1.2;
+
+    &--dummy {
+      height: 0;
+    }
+  }
+
+  &__film-img {
+    width: 100%;
+    margin-bottom: 10px;
+    background: grey;
+    min-width: 250px;
+    height: 350px;
+  }
+
+  &__film-year {
+    padding: 5px 10px;
+    margin: 0 0 5px 5px;
+    float: right;
+    color: coral;
+    border: 1px solid coral;
+  }
+
+  &__film-name {
+    font-size: 16px;
+    margin-bottom: 3px;
+  }
+
+  &__film-genre {
+    color: grey;
+    font-size: 12px;
+  }
+
+  &__no-films-message {
+    font-size: 34px;
+    padding: 50px;
+    text-align: center;
+  }
+}
