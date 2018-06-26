@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchControls should contain right data 1`] = `
+<section
+  className="search-controls"
+>
+  <div
+    className="search-controls__background-shading"
+  />
+  <section
+    className="search-controls__content"
+  >
+    <h1
+      className="search-controls__heading"
+    >
+      Find your movie
+    </h1>
+    <input
+      className="search-controls__search-input"
+      onKeyUp={[Function]}
+      placeholder="Search"
+      type="text"
+    />
+    <div
+      className="search-controls__controls"
+    >
+      <ul
+        className="search-controls__search-by-list"
+      >
+         Search by:
+        <li
+          className="search-controls__search-by-item"
+        >
+          <button
+            className="search-controls__button search-controls__button--inactive"
+            onClick={[Function]}
+          >
+            1
+          </button>
+        </li>
+        <li
+          className="search-controls__search-by-item"
+        >
+          <button
+            className="search-controls__button search-controls__button--inactive"
+            onClick={[Function]}
+          >
+            2
+          </button>
+        </li>
+      </ul>
+      <button
+        className="search-controls__button search-controls__button--large"
+        onClick={[Function]}
+      >
+         Search 
+      </button>
+    </div>
+  </section>
+</section>
+`;

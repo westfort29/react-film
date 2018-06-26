@@ -1,7 +1,7 @@
 import * as React from "react";
 import { FilmOnSearchPage } from './';
 
-export const FilmsList = ({films}) =>
+const FilmsList = ({films}) =>
   (
     <React.Fragment>
       {films.map(film => (
@@ -14,5 +14,6 @@ export const FilmsList = ({films}) =>
       <li className="films-search-result__film films-search-result__film--dummy"></li>
       <li className="films-search-result__film films-search-result__film--dummy"></li>
     </React.Fragment>
-  )
-;
+  );
+
+export default FilmsList;

@@ -2,7 +2,7 @@ import * as React from "react";
 import { SearchControls, GeneralSearchResults, FilmsList } from './';
 const BASIC_URL = 'http://react-cdp-api.herokuapp.com/movies';
 
-export class FilmsSearchWrapper extends React.PureComponent {
+export default class FilmsSearchWrapper extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = {
@@ -20,7 +20,6 @@ export class FilmsSearchWrapper extends React.PureComponent {
   }
 
   updateData = () => {
-    console.log(this.getRequestUrl());
     fetch(this.getRequestUrl())
     .then(response => response.json())
     .then((data) => {

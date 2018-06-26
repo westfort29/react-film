@@ -1,6 +1,6 @@
 import * as React from "react";
 
-export const AppFooter = () =>
+const AppFooter = () =>
   (<footer className="app-footer">
     <ul className="app-footer__info-list">
       <li className="app-footer__info-item">
@@ -12,4 +12,6 @@ export const AppFooter = () =>
     </ul>
   </footer>)
 ;
+
+export default AppFooter;
 

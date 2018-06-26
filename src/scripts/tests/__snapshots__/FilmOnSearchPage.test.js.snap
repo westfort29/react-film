@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FilmOnSearchPage should contain right data 1`] = `
+<li
+  className="films-search-result__film"
+>
+  <img
+    alt="Django Unchained"
+    className="films-search-result__film-img"
+    src="https://image.tmdb.org/t/p/w500/5WJnxuw41sddupf8cwOxYftuvJG.jpg"
+  />
+  <span
+    className="films-search-result__film-year"
+  >
+    2012
+  </span>
+  <p
+    className="films-search-result__film-name"
+  >
+    Django Unchained
+  </p>
+  <p
+    className="films-search-result__film-genre"
+  >
+    Drama&Western
+  </p>
+</li>
+`;

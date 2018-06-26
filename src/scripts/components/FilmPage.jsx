@@ -1,8 +1,8 @@
 import * as React from "react";
-import { FilmsList } from "./FilmsList";
+import { FilmsList } from "./";
 const BASIC_URL = 'http://react-cdp-api.herokuapp.com/movies';
 
-export class FilmPage extends React.PureComponent {
+export default class FilmPage extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = {
@@ -26,6 +26,10 @@ export class FilmPage extends React.PureComponent {
       sameGenreFilms: []
     }
 
+    this.getFilmsWithSameGenre();
+  }
+
+  getFilmsWithSameGenre = () => {
     fetch(this.getRequestUrl())
     .then(response => response.json())
     .then((data) => {
@@ -90,4 +94,3 @@ export class FilmPage extends React.PureComponent {
     )
   }
 }
-

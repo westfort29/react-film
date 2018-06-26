@@ -1,0 +1,98 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FilmsSearchWrapper should contain right data 1`] = `
+Array [
+  <section
+    className="search-controls"
+  >
+    <div
+      className="search-controls__background-shading"
+    />
+    <section
+      className="search-controls__content"
+    >
+      <h1
+        className="search-controls__heading"
+      >
+        Find your movie
+      </h1>
+      <input
+        className="search-controls__search-input"
+        onKeyUp={[Function]}
+        placeholder="Search"
+        type="text"
+      />
+      <div
+        className="search-controls__controls"
+      >
+        <ul
+          className="search-controls__search-by-list"
+        >
+           Search by:
+          <li
+            className="search-controls__search-by-item"
+          >
+            <button
+              className="search-controls__button"
+              onClick={[Function]}
+            >
+              Title
+            </button>
+          </li>
+          <li
+            className="search-controls__search-by-item"
+          >
+            <button
+              className="search-controls__button search-controls__button--inactive"
+              onClick={[Function]}
+            >
+              Genre
+            </button>
+          </li>
+        </ul>
+        <button
+          className="search-controls__button search-controls__button--large"
+          onClick={[Function]}
+        >
+           Search 
+        </button>
+      </div>
+    </section>
+  </section>,
+  <div
+    className="general-search-results"
+  >
+    <div
+      className="general-search-results__movies-found"
+    >
+      0
+       Movies found
+    </div>
+    <div
+      className="general-search-results__sorting-options"
+    >
+      Sort by:
+      <button
+        className="general-search-results__sorting-button general-search-results__sorting-button--active"
+      >
+        release date
+      </button>
+      <button
+        className="general-search-results__sorting-button"
+        onClick={[Function]}
+      >
+        rating
+      </button>
+    </div>
+  </div>,
+  <ul
+    className="films-search-result"
+  >
+    <li
+      className="films-search-result__no-films-message"
+    >
+       No films found 
+    </li>
+  </ul>,
+]
+`;

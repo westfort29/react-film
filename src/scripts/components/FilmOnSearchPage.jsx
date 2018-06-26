@@ -1,6 +1,6 @@
 import * as React from "react";
 
-export const FilmOnSearchPage = ({film}) =>
+const FilmOnSearchPage = ({film}) =>
   (
     <li className="films-search-result__film">
       <img className="films-search-result__film-img" src={film.poster_path} alt={film.title} />
@@ -10,3 +10,5 @@ export const FilmOnSearchPage = ({film}) =>
     </li>
   )
 ;
+
+export default FilmOnSearchPage;

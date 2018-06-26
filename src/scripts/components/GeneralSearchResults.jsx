@@ -1,6 +1,6 @@
 import * as React from "react";
 
-export const GeneralSearchResults = ({amount, searchSortingTypes, onSortOptionClick}) =>
+const GeneralSearchResults = ({amount, searchSortingTypes, onSortOptionClick}) =>
   (<div className="general-search-results">
     <div className="general-search-results__movies-found">
     { amount } Movies found
@@ -25,5 +25,7 @@ export const GeneralSearchResults = ({amount, searchSortingTypes, onSortOptionCl
         )
       )}
     </div>
-  </div> );
+  </div>
+  );
 
+export default GeneralSearchResults;

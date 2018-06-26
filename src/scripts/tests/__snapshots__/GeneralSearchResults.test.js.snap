@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GeneralSearchResults should contain right data 1`] = `
+<div
+  className="general-search-results"
+>
+  <div
+    className="general-search-results__movies-found"
+  >
+    8
+     Movies found
+  </div>
+  <div
+    className="general-search-results__sorting-options"
+  >
+    Sort by:
+    <button
+      className="general-search-results__sorting-button general-search-results__sorting-button--active"
+    >
+      release date
+    </button>
+    <button
+      className="general-search-results__sorting-button"
+      onClick={[Function]}
+    >
+      rating
+    </button>
+  </div>
+</div>
+`;

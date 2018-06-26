@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ErrorBoundary should contain right data 1`] = `
+<footer
+  className="app-footer"
+>
+  <ul
+    className="app-footer__info-list"
+  >
+    <li
+      className="app-footer__info-item"
+    >
+      This is footer
+    </li>
+    <li
+      className="app-footer__info-item"
+    >
+      Copyright things
+    </li>
+  </ul>
+</footer>
+`;

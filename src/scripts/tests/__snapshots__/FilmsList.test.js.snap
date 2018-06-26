@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FilmsList should contain right data 1`] = `
+Array [
+  <div>
+     mock film 
+  </div>,
+  <li
+    className="films-search-result__film films-search-result__film--dummy"
+  />,
+  <li
+    className="films-search-result__film films-search-result__film--dummy"
+  />,
+  <li
+    className="films-search-result__film films-search-result__film--dummy"
+  />,
+  <li
+    className="films-search-result__film films-search-result__film--dummy"
+  />,
+]
+`;

@@ -1,6 +1,6 @@
 import * as React from "react";
 
-export class SearchControls extends React.PureComponent {
+export default class SearchControls extends React.PureComponent {
   constructor(props) {
     super(props);
   }
