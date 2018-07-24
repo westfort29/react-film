@@ -1,82 +1,46 @@
 import * as React from "react";
-import { SearchControls, GeneralSearchResults, FilmsList } from './';
-const BASIC_URL = 'http://react-cdp-api.herokuapp.com/movies';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import SearchControls from './SearchControls';
+import GeneralSearchResults from './GeneralSearchResults';
+import FilmsList from './FilmsList';
+import {findFilms} from '../actions/findFilmsAction';
+import {setSortingType} from '../actions/searchSortingTypeActions';
+import {setSearchByOption} from '../actions/searchByActions';
+import {urlBuilderService} from '../utils/urlBuilderService';
 
-export default class FilmsSearchWrapper extends React.PureComponent {
+export class FilmsSearchWrapper extends React.PureComponent {
   constructor(props) {
     super(props);
-    this.state = {
-      searchSortingTypes: [
-        {name: 'release date', isActive: true, id: 'release_date'},
-        {name: 'rating', isActive: false, id: 'vote_average'}
-      ],
-      searchByOptions: [
-        {name: 'Title', id: 'title', isActive: true},
-        {name: 'Genre', id: 'genres', isActive: false}
-      ],
-      totalFilmsFound: 0,
-      displayFilms: []
-    };
   }
 
   updateData = () => {
-    fetch(this.getRequestUrl())
-    .then(response => response.json())
-    .then((data) => {
-      this.setState(
-        {
-          displayFilms: data.data,
-          totalFilmsFound: data.total
-        }
-      );
-    });
+    this.props.findFilms(this.getRequestUrl());
   }
 
   getRequestUrl = () => {
-    let requestUrl = BASIC_URL;
     let params = {};
     params.sortBy = this.getSelectedFilter().id;
     params.searchBy = this.getSelectedSearchOption().id;
     params.search = this.searchInputRef.value;
     params.sortOrder = 'desc';
-    requestUrl += '?' + this.getQueryStringFromObject(params);
-    return requestUrl;
+    return urlBuilderService.getUrl(params);
   }
 
   onSortOptionClick = (newSelectedSortingOption) => {
-    let newOptions = this.state.searchSortingTypes.slice();
-    newOptions.map(option => {
-      option.isActive = newSelectedSortingOption.name === option.name;
-    });
-    this.setState({
-      searchSortingTypes: newOptions
-    });
+    this.props.setSortingType(newSelectedSortingOption.id);
   }
 
   onSearchOptionClick = (newSelectedSearchByOption) => {
-    let newOptions = this.state.searchByOptions.slice();
-    newOptions.map(option => {
-      option.isActive = newSelectedSearchByOption.name === option.name;
-    });
-    this.setState({
-      searchByOptions: newOptions
-    });
+    this.props.setSearchByOption(newSelectedSearchByOption.id);
   }
 
   getSelectedFilter = () => {
-    return this.state.searchSortingTypes.find((sortingType) => sortingType.isActive === true);
+    return this.props.searchSortingTypes.find((sortingType) => sortingType.isActive === true);
   }
 
   getSelectedSearchOption = () => {
-    return this.state.searchByOptions.find((searchOption) => searchOption.isActive === true);
-  }
-
-  getQueryStringFromObject = (params) => {
-    let queryString = '';
-    for (let key in params) {
-      queryString += key + '=' + params[key] + '&';
-    }
-    return queryString;
+    return this.props.searchByOptions.find((searchOption) => searchOption.isActive === true);
   }
 
   onSearchClick = () => {
@@ -91,17 +55,17 @@ export default class FilmsSearchWrapper extends React.PureComponent {
         <SearchControls
           onSearchClick={this.onSearchClick}
           searchInputRef={el => this.searchInputRef = el}
-          searchByOptions={this.state.searchByOptions}
+          searchByOptions={this.props.searchByOptions}
           onSearchOptionClick={this.onSearchOptionClick}
         />
         <GeneralSearchResults
-          amount={this.state.totalFilmsFound}
-          searchSortingTypes={this.state.searchSortingTypes}
+          amount={this.props.totalFilmsFound}
+          searchSortingTypes={this.props.searchSortingTypes}
           onSortOptionClick={this.onSortOptionClick}
         />
         <ul className="films-search-result">
-          {this.state.displayFilms.length ? 
-            <FilmsList films={this.state.displayFilms} /> :
+          {this.props.displayFilms.length ? 
+            <FilmsList films={this.props.displayFilms} /> :
             (
               <React.Fragment>
                 <li className="films-search-result__no-films-message"> No films found </li>
@@ -114,3 +78,23 @@ export default class FilmsSearchWrapper extends React.PureComponent {
   }
 }
 
+function mapStateToProps (state) {
+  return {
+    displayFilms: state.filmsSearchReducer.foundFilms,
+    totalFilmsFound: state.filmsSearchReducer.foundFilmsAmount,
+    fetching: state.filmsSearchReducer.fetching,
+    isError: state.filmsSearchReducer.isError,
+    searchSortingTypes: state.sortingTypeReducer.searchSortingTypes,
+    searchByOptions: state.searchByReducer.searchByOptions
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    findFilms: bindActionCreators(findFilms, dispatch),
+    setSortingType: bindActionCreators(setSortingType, dispatch),
+    setSearchByOption: bindActionCreators(setSearchByOption, dispatch)
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(FilmsSearchWrapper);

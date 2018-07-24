@@ -1,5 +1,5 @@
 import React from 'react';
-import { FilmOnSearchPage } from '../';
+import FilmOnSearchPage from '../components/FilmOnSearchPage';
 import renderer from 'react-test-renderer';
 
 const FILM = {

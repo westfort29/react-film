@@ -31,9 +31,7 @@ exports[`FilmPage should contain right data 1`] = `
           className="film-page__poster-wrapper"
         >
           <img
-            alt="Django Unchained"
             className="film-page__poster"
-            src="https://image.tmdb.org/t/p/w500/5WJnxuw41sddupf8cwOxYftuvJG.jpg"
           />
         </div>
         <div
@@ -41,34 +39,27 @@ exports[`FilmPage should contain right data 1`] = `
         >
           <h1
             className="film-page__film-title"
-          >
-            Django Unchained
-          </h1>
+          />
           <p
             className="film-page__film-rewards"
-          >
-            Life, liberty and the pursuit of vengeance.
-          </p>
+          />
           <p
             className="film-page__film-time"
           >
             <span
               className="film-page__film-year"
             >
-              2012
+              2001
             </span>
             <span
               className="film-page__film-duration"
             >
-              165
                min
             </span>
           </p>
           <p
             className="film-page__film-description"
-          >
-            With the help of a German bounty hunter, a freed slave sets out to rescue his wife from a brutal Mississippi plantation owner.
-          </p>
+          />
         </div>
       </section>
     </div>
@@ -80,7 +71,7 @@ exports[`FilmPage should contain right data 1`] = `
     <span
       className="film-page__genre-title"
     >
-      Drama
+      
        genre 
     </span>
   </div>

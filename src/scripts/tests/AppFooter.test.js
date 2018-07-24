@@ -1,5 +1,5 @@
 import React from 'react';
-import { AppFooter } from '../';
+import AppFooter from '../components/AppFooter';
 import renderer from 'react-test-renderer';
 
 test('AppFooter should contain right data', () => {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { FilmsList } from '../';
+import FilmsList from '../components/FilmsList';
 import renderer from 'react-test-renderer';
 
 jest.mock('../components/FilmOnSearchPage', () => () => <div> mock film </div>);

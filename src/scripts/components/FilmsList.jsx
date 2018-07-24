@@ -1,5 +1,5 @@
 import * as React from "react";
-import { FilmOnSearchPage } from './';
+import FilmOnSearchPage from './FilmOnSearchPage';
 
 const FilmsList = ({films}) =>
   (

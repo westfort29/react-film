@@ -1,5 +1,5 @@
 import React from 'react';
-import { SearchControls } from '../';
+import SearchControls from '../components/SearchControls';
 import renderer from 'react-test-renderer';
 
 const SEARCH_BY_OPTIONS = [

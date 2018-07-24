@@ -1,5 +1,6 @@
 import React from 'react';
-import { ErrorBoundary, AppFooter } from '../';
+import ErrorBoundary from '../components/ErrorBoundary';
+import AppFooter from '../components/AppFooter';
 import renderer from 'react-test-renderer';
 
 test('ErrorBoundary should contain right data', () => {

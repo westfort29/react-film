@@ -1,5 +1,5 @@
 import React from 'react';
-import { GeneralSearchResults } from '../';
+import GeneralSearchResults from '../components/GeneralSearchResults';
 import renderer from 'react-test-renderer';
 
 const SEARCH_SORTING_TYPES =[

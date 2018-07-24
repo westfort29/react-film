@@ -1,8 +1,13 @@
 import * as React from "react";
 import { connect } from 'react-redux';
-import { AppFooter, FilmsSearchWrapper, FilmPage, ErrorBoundary } from "./scripts";
+import { bindActionCreators } from 'redux';
+import AppFooter from "./scripts/components/AppFooter";
+import FilmsSearchWrapper from "./scripts/components/FilmsSearchWrapper";
+import FilmPage from "./scripts/components/FilmPage";
+import ErrorBoundary from "./scripts/components/ErrorBoundary";
 
 class App extends React.PureComponent {
+
   render() {
     return (
       <main>
@@ -18,8 +23,12 @@ class App extends React.PureComponent {
 
 function mapStateToProps (state) {
   return {
-    someProp: state.someProp
   }
 }
 
-export default connect(mapStateToProps)(App)
+function mapDispatchToProps(dispatch) {
+  return {
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
