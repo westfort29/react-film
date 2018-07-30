@@ -8,20 +8,13 @@ const GeneralSearchResults = ({amount, searchSortingTypes, onSortOptionClick}) =
     <div className="general-search-results__sorting-options">
      Sort by: 
      {searchSortingTypes.map(sortingType => (
-          sortingType.isActive ? 
-          <button
-            className="general-search-results__sorting-button general-search-results__sorting-button--active"
-            key={sortingType.name}
+        <button
+          className={"general-search-results__sorting-button " + (sortingType.isActive && "general-search-results__sorting-button--active")}
+          key={sortingType.name}
+          onClick={onSortOptionClick.bind(null, sortingType)}
           >
-            {sortingType.name}
-          </button> :
-          <button
-            className="general-search-results__sorting-button"
-            key={sortingType.name}
-            onClick={onSortOptionClick.bind(null, sortingType)}
-          >
-            {sortingType.name}
-          </button>
+          {sortingType.name}
+        </button>
         )
       )}
     </div>

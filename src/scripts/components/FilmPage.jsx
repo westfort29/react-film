@@ -6,12 +6,19 @@ import {findSameGenreFilms} from '../actions/findSameGenreFilmsAction';
 import {getFilm} from '../actions/getFilmAction';
 import {getFilmAndSameGenreFilms} from '../actions/getFilmAction';
 import { urlBuilderService } from '../utils/urlBuilderService';
+import {NavLink} from 'react-router-dom';
 
 export class FilmPage extends React.PureComponent {
-  constructor(props) {
-    super(props);
+  constructor(props, context) {
+    super(props, context);
 
-    this.props.getFilmAndSameGenreFilms(urlBuilderService.getUrl({}, '68718'));
+    this.props.getFilmAndSameGenreFilms(urlBuilderService.getUrl({}, this.props.match.params.filmId));
+  }
+
+   componentDidUpdate(prevProps) {
+    if (prevProps.match.params.filmId !== this.props.match.params.filmId) {
+      this.props.getFilmAndSameGenreFilms(urlBuilderService.getUrl({}, this.props.match.params.filmId));
+    }
   }
 
   render() {
@@ -21,7 +28,7 @@ export class FilmPage extends React.PureComponent {
           <div className="film-page__content">
             <div className="film-page__heading">
               <span className="logo">netflixroulette</span>
-              <a className="film-page__search-link">Search</a>
+              <NavLink to="/search" className="film-page__search-link">Search</NavLink>
             </div>
             <section className="film-page__film-info">
               <div className="film-page__poster-wrapper">

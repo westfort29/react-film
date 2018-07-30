@@ -8,14 +8,28 @@ import {findFilms} from '../actions/findFilmsAction';
 import {setSortingType} from '../actions/searchSortingTypeActions';
 import {setSearchByOption} from '../actions/searchByActions';
 import {urlBuilderService} from '../utils/urlBuilderService';
+import {history} from 'react-router-dom';
 
 export class FilmsSearchWrapper extends React.PureComponent {
-  constructor(props) {
-    super(props);
+  constructor(props, context) {
+    super(props, context);
   }
 
   updateData = () => {
     this.props.findFilms(this.getRequestUrl());
+    this.props.history.push('/search?search=' + this.searchInputRef.value);
+  }
+
+  componentDidMount() {
+    this.setQueryIfNeeded();
+  }
+
+  setQueryIfNeeded() {
+    if (this.props.location && this.props.location.search) {
+      const queryParams = new URLSearchParams(this.props.location.search);
+      this.searchInputRef.value = queryParams.get('search');
+      this.updateData();
+    }
   }
 
   getRequestUrl = () => {

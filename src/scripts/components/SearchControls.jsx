@@ -21,26 +21,14 @@ export default class SearchControls extends React.PureComponent {
             <ul className="search-controls__search-by-list"> Search by:
 
               {this.props.searchByOptions.map(option => (
-                option.isActive ? (
                   <li className="search-controls__search-by-item" key={option.id}>
                     <button
-                      className="search-controls__button"
+                      className={"search-controls__button " + (!option.isActive && "search-controls__button--inactive")}
                       onClick={this.props.onSearchOptionClick.bind(null, option)}
                     >
                       {option.name}
                     </button>
                   </li>
-                ) :
-                (
-                  <li className="search-controls__search-by-item" key={option.id}>
-                    <button
-                      className="search-controls__button search-controls__button--inactive"
-                      onClick={this.props.onSearchOptionClick.bind(null, option)}
-                    >
-                      {option.name}
-                    </button>
-                  </li>
-                )
               ))}
             </ul>
             <button className="search-controls__button search-controls__button--large" onClick={this.props.onSearchClick}> Search </button>

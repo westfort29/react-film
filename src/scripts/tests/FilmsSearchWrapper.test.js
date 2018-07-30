@@ -4,6 +4,7 @@ import renderer from 'react-test-renderer';
 import { mount, shallow } from 'enzyme';
 import { configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import { MemoryRouter  } from 'react-router-dom';
 
 configure({ adapter: new Adapter() });
 
@@ -45,28 +46,15 @@ const MOCK_RESPONSE = {
     }
   }
 };
-
+let LOCATION = {search: ""};
 let component;
 
 global.fetch = jest.fn().mockImplementation( () => new Promise((resolve, reject) => resolve(MOCK_RESPONSE)).catch(e => e));
 
 beforeEach(() => {
-  component = shallow(<FilmsSearchWrapper
-    displayFilms={[]}
-    totalFilmsFound={0}
-    fetching={false}
-    isError={false}
-    searchSortingTypes={INITIAL_STATE_SORTING_OPTIONS}
-    findFilms={()=>{}}
-    setSortingType={()=>{}}
-    setSearchByOption={()=>{}}
-    searchByOptions={INITIAL_STATE_SEARCH_BY_OPTIONS}/>).instance();
-  component.searchInputRef = {value: 'test'};
-})
-
-describe('FilmsSearchWrapper', () => {
-  test('should contain right data', () => {
-    const renderedComponent = renderer.create(<FilmsSearchWrapper
+  component = shallow(
+    <FilmsSearchWrapper
+      location={LOCATION}
       displayFilms={[]}
       totalFilmsFound={0}
       fetching={false}
@@ -75,7 +63,30 @@ describe('FilmsSearchWrapper', () => {
       findFilms={()=>{}}
       setSortingType={()=>{}}
       setSearchByOption={()=>{}}
-      searchByOptions={INITIAL_STATE_SEARCH_BY_OPTIONS}/>);
+      searchByOptions={INITIAL_STATE_SEARCH_BY_OPTIONS}
+      match={{params: {filmId: 316029}}}
+      history={{push: ()=>{}}}/>).instance();
+  component.searchInputRef = {value: 'test'};
+  const setQueryIfNeededSpy = jest.spyOn(component, 'setQueryIfNeeded');
+})
+
+describe('FilmsSearchWrapper', () => {
+  test('should contain right data', () => {
+    const renderedComponent = renderer.create(
+    <MemoryRouter >
+      <FilmsSearchWrapper
+        location={LOCATION}
+        displayFilms={[]}
+        totalFilmsFound={0}
+        fetching={false}
+        isError={false}
+        searchSortingTypes={INITIAL_STATE_SORTING_OPTIONS}
+        findFilms={()=>{}}
+        setSortingType={()=>{}}
+        setSearchByOption={()=>{}}
+        searchByOptions={INITIAL_STATE_SEARCH_BY_OPTIONS}
+        match={{params: {filmId: 316029}}}/>
+      </MemoryRouter >);
     let tree = renderedComponent.toJSON();
     expect(tree).toMatchSnapshot();
   });

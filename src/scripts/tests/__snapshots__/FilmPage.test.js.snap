@@ -19,7 +19,10 @@ exports[`FilmPage should contain right data 1`] = `
           netflixroulette
         </span>
         <a
+          aria-current={null}
           className="film-page__search-link"
+          href="/search"
+          onClick={[Function]}
         >
           Search
         </a>

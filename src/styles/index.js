@@ -6,3 +6,4 @@ import "./search-controls.scss";
 import "./general-search-results.scss";
 import "./films-search-result.scss";
 import "./film-page.scss";
+import "./error-page.scss";

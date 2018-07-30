@@ -1,6 +1,7 @@
 import React from 'react';
 import FilmOnSearchPage from '../components/FilmOnSearchPage';
 import renderer from 'react-test-renderer';
+import {MemoryRouter } from 'react-router-dom';
 
 const FILM = {
   id: 68718,
@@ -22,9 +23,11 @@ const FILM = {
 
 test('FilmOnSearchPage should contain right data', () => {
   const component = renderer.create(
-    <FilmOnSearchPage
-      film={ FILM }
-    />
+    <MemoryRouter >
+      <FilmOnSearchPage
+        film={ FILM }
+      />
+    </MemoryRouter >
   );
   let tree = component.toJSON();
   expect(tree).toMatchSnapshot();

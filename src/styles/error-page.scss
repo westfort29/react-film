@@ -1,0 +1,20 @@
+.error-page {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  background: #bbb;
+  min-height: 600px;
+
+  &__error-code {
+    font-size: 42px;
+    color: $primary-contrast-color;
+    text-align: center;
+    padding-bottom: 50px;
+  }
+
+  &__description {
+    text-align: center;
+    letter-spacing: 0.9px;
+  }
+}

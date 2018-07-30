@@ -14,6 +14,9 @@ module.exports = function(env, options) {
     },
     mode: isProduction ? "production" : "development",
     devtool: isProduction ? "none" : "source-map",
+    output: {
+      publicPath: '/'
+    },
 
     resolve: {
       extensions: [".js", ".jsx"/* , ".ts", ".tsx" */]
@@ -73,7 +76,8 @@ module.exports = function(env, options) {
     ],
 
     devServer: {
-      contentBase: "./dist"
+      contentBase: "./dist",
+      historyApiFallback: true
     }
   };
 

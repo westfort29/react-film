@@ -14,11 +14,14 @@ exports[`FilmOnSearchPage should contain right data 1`] = `
   >
     2012
   </span>
-  <p
+  <a
+    aria-current={null}
     className="films-search-result__film-name"
+    href="/film/68718"
+    onClick={[Function]}
   >
     Django Unchained
-  </p>
+  </a>
   <p
     className="films-search-result__film-genre"
   >

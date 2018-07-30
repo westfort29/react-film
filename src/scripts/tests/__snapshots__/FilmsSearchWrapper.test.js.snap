@@ -33,7 +33,7 @@ Array [
             className="search-controls__search-by-item"
           >
             <button
-              className="search-controls__button"
+              className="search-controls__button false"
               onClick={[Function]}
             >
               Title
@@ -74,11 +74,12 @@ Array [
       Sort by:
       <button
         className="general-search-results__sorting-button general-search-results__sorting-button--active"
+        onClick={[Function]}
       >
         release date
       </button>
       <button
-        className="general-search-results__sorting-button"
+        className="general-search-results__sorting-button false"
         onClick={[Function]}
       >
         rating

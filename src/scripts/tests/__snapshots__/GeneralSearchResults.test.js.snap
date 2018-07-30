@@ -16,11 +16,12 @@ exports[`GeneralSearchResults should contain right data 1`] = `
     Sort by:
     <button
       className="general-search-results__sorting-button general-search-results__sorting-button--active"
+      onClick={[Function]}
     >
       release date
     </button>
     <button
-      className="general-search-results__sorting-button"
+      className="general-search-results__sorting-button false"
       onClick={[Function]}
     >
       rating
